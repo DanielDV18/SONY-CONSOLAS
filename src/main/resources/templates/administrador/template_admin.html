@@ -1,0 +1,53 @@
+<!-- Navigation -->
+<div th:fragment="header">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="height: 60px; background-color: rgb(159 154 150);">
+		<img src="/images/logo.webp"  width="150px" height="50px" style="text-align: left;">
+
+		<div class="container">
+
+			
+		<!--- <a class="navbar-brand" th:href="@{/administrador}">SONY CONSOLAS</a> -->
+
+			<form class="form-inline my-2 my-lg-0" method="post" action="#">
+				<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
+					autocomplete="off">
+				<button class="btn btn-warning" type="submit">Buscar</button>
+			</form>
+
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false" style="color:#fff ;"> ADMINISTRADOR </a>
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" th:href="@{/productos}"> Productos</a>
+							<a class="dropdown-item" th:href="@{/administrador/usuarios}"> Usuarios</a>
+							<a class="dropdown-item" th:href="@{/administrador/ventas}"> Ventas</a>
+							<a class="dropdown-item" th:href="@{/usuario/cerrar}"> Salir</a>
+
+						</div>
+					</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>
+
+
+<!-- Footer -->
+<div th:fragment="footer">
+	<footer class="py-5" style="background-color: #9f9a96; ">
+		<div class="container">
+			<p class="m-0 text-center text-black">Copyright &copy; Sony Consolas 2022</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+</div>

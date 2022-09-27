@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>LOGIN</title>
+
+
+  <!-- Bootstrap core CSS -->
+	<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+  <link th:href="@{/css/login.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="height: 60px; background-color: rgb(159 154 150);">
+		<div class="container">
+				<img src="/images/logo.webp"  width="150px" height="50px" style="text-align: left;">
+	
+
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/}"  style="color: #fff;">INICIO</a>
+          </li>
+        </ul>
+      </div>    
+    </div>
+  </nav>
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <img class="img1" src="/images/fnd2.jpg" >
+           
+    <form class="form" th:action="@{/usuario/login}" method="post">
+      <h2 class="form-title">INICIAR SESION</h2>
+      <div class="form-group">
+        <label for="email"> Email:  </label>      
+        <input type="email" class="form-control" id="username" name="username" placeholder="Ingrese su email" required autocomplete="off"> 
+
+      </div>
+
+      <div class="form-group">
+        <label for="pwd"> Contraseña:</label>
+        <input type="password"  class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required>       
+      </div>
+
+      <div class="form-group">
+        <div class="btn">
+          <button type="submit" class="btn btn-success"> <span class="glyphicon glyphicon-ok"></span> Ingresar</button>
+        </div>      
+      </div>   
+      <a th:href="@{/usuario/registro}" class="card-link">¿No tiene una cuenta? Cree una.</a> 
+    </form>
+
+
+   
+  </div>
+  <!-- /.container -->
+
+
+
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

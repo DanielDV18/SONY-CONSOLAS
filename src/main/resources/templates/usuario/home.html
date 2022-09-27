@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>INICIO</title>
+
+
+	<!-- Bootstrap core CSS -->
+	<link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link th:href="@{css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
+	
+	<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div>
+
+	<!-- Page Content -->
+	<div class="container">
+		<div class="titu"><h1>SONY CONSOLAS</h1></div>
+		<br>
+		
+
+		<!-- Page Features -->
+		<div class="row text-center">
+
+			<div class="col-lg-3 col-md-6 mb-4" th:each="producto: ${productos}">
+				<div class="card h-100">
+					<img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="">
+					<div class="card-body">
+						<p class="card-text" th:text="${producto.nombre}"></p>
+					</div>
+					<div class="card-footer">
+						<a th:href="@{/productohome/{id} (id=${producto.id})}" class="btn btn-success">Ver producto</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<div th:include="usuario/template_usuario.html::footer"></div>
+
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

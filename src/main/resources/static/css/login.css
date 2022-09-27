@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(223 220 214);
+}
+.form{
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 4.em;
+    border-radius: 10px;
+    margin-left: 53%;
+    padding-top: 95px;
+    padding-left: 115px;
+   
+}
+.form .form-title{
+ font-size: 2rem;
+ margin-bottom: .5rem;
+ margin-left: -15px;
+ color: #000000;
+ padding: 0.5em;
+ 
+}
+.form .btn{
+    margin-left: -5px;}
+.img1{
+    float:left; 
+    width:740px;
+    height: 527px;
+     margin-top: 0.3em;
+     margin-left: -66px;
+}
+.card-link{
+    margin-left: 0px;
+}
+
+
+
+

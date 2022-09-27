@@ -1,0 +1,14 @@
+
+body {
+  padding-top: 56px;
+  background-color: rgb(209, 209, 209);
+}
+.container .jumbotron{
+ text-align: center;
+ color: rgb(255, 153, 0);
+ background-color: #3f4952;
+}
+.titu{
+  text-align: center;
+  padding-top: 1rem;
+}
