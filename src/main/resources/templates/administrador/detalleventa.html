@@ -15,14 +15,40 @@
 	<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+	<link th:href="@{/css/estilosDETVEN.css}" rel="stylesheet">
 
 </head>
 
 <body>
 
 	<!-- Navigation -->
-	<div th:include="administrador/template_admin.html::header"></div>
+	<section id="menu">
+		<div class="logo">
+			<a th:href="@{/administrador}"><img src="/images/logo.webp" alt=""></a>
+		</div>
+
+
+		<div class="items">
+			<li><i class="fa-solid fa-cash-register"></i><a th:href="@{/administrador/ventas}">VENTAS</a></li>
+			<li><i class="fa-solid fa-right-from-bracket"></i><a th:href="@{/usuario/cerrar}">SALIR</a></li>
+
+		</div>
+	</section>
+	<section id="interface">
+		<div class="navigation">
+			<div class="search">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
+					autocomplete="off">
+			</div>
+		</div>
+		<div class="admin">
+			<h1>ADMIN</h1>
+		</div>
+		<div class="user">
+			<i class="fa-sharp fa-solid fa-user"></i>
+		</div>
+	</section>
 
 
 	<!-- Page Content -->
@@ -30,9 +56,11 @@
 
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">
-			DETALLES DE LA VENTA 
-		</h1>
+		<center>
+			<h1 class="mt-4 mb-3">
+				DETALLES DE LA VENTA
+			</h1>
+		</center>
 
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a th:href="@{/administrador}">Inicio</a></li>
@@ -70,12 +98,12 @@
 	</div>
 	<!-- /.container -->
 
-	<!-- Footer -->
-	<div th:include="administrador/template_admin.html::footer"></div>
+
 
 	<!-- Bootstrap core JavaScript -->
 	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
 	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script src="https://kit.fontawesome.com/ce8c3d092d.js" crossorigin="anonymous"></script>
 
 </body>
 

@@ -16,110 +16,137 @@
   <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/estilospro.css}">
 
 </head>
 
 <body>
 
- <!-- Navigation -->
- <div th:include="administrador/template_admin.html::header"></div>
-    
-
-<!-- Page Content -->
-<div class="container">
-
-
-  <!-- Page Heading/Breadcrumbs -->
-  <h1 class="mt-4 mb-3" style="text-align: left;">
-    LISTADO DE PRODUCTOS
-  </h1>
-
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a th:href="@{/administrador}">Inicio</a></li>
-    <li class="breadcrumb-item active">Ver Productos</li>
-  </ol>
-
-  <a class="btn btn-primary" th:href="@{/productos/create}" > Crear Producto</a>
-  <br>
-  <br>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Acción</th>
-        <th scope="col">Acción</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="producto:${productos}">
-        <td th:text="${producto.nombre}" ></td>
-        <td th:text="${producto.descripcion}"></td>
-        <td th:text="${producto.cantidad}"></td>
-        <td th:text="${producto.precio}"></td>
-        <td><a  class="btn btn-warning" onclick="return confirm('Está seguro que quiere modificar este Producto?');" th:href="@{productos/editar/{id} (id=${producto.id})}">Editar</a> </td>
-        <td><a  class="btn btn-danger" th:onclick="|eliminar_pro('${producto.id}')|" >Borrar</a> </td>
-      </tr>       
-    </tbody>
-  </table>
+  <!-- Navigation -->
+  <section id="menu">
+    <div class="logo">
+      <a th:href="@{/administrador}"><img src="/images/logo.webp" alt=""></a>
+    </div>
 
 
-</div>
-<!-- /.container -->
+    <div class="items">
+      <li><i class="fa-solid fa-cart-shopping"></i><a th:href="@{/productos}">PRODUCTOS</a></li>
+      <li><i class="fa-sharp fa-solid fa-users"></i><a th:href="@{/administrador/usuarios}">USUARIOS</a></li>
+      <li><i class="fa-solid fa-cash-register"></i><a th:href="@{/administrador/ventas}">VENTAS</a></li>
+      <li><i class="fa-solid fa-right-from-bracket"></i><a th:href="@{/usuario/cerrar}">SALIR</a></li>
 
-<div th:include="administrador/template_admin.html::footer"></div>
+    </div>
+  </section>
+  <section id="interface">
+    <div class="navigation">
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
+          autocomplete="off">
+      </div>
+    </div>
+    <div class="admin">
+      <h1>ADMIN</h1>
+    </div>
+    <div class="user">
+      <i class="fa-sharp fa-solid fa-user"></i>
+    </div>
+  </section>
 
 
- <!-- Bootstrap core JavaScript -->
- <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
- <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
- <script>
-  function eliminar_pro(id) {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-    swalWithBootstrapButtons.fire({
-      title: 'Esta seguro que quiere eliminarlo?',
-      text: "Esta accion no se puede revertir!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'si, seguro!',
-      cancelButtonText: 'No, cancelar!',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
+  <!-- Page Content -->
+  <div class="container">
 
-        swalWithBootstrapButtons.fire(
-          'Eliminado!',
-          'El producto ha sido eliminado con exito!',
-          'success'
-        ).then((respuesta) => {
-          window.location.href = `productos/delete/${id}`;
-        })
-        
-        
 
-      } else if (
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Cancelado',
-          'El producto no ha sido eliminado',
-          'error'
-        )
-      }
-    })
-    
-  }
-</script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3" style="text-align: left;">
+      LISTADO DE PRODUCTOS
+    </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a th:href="@{/administrador}">Inicio</a></li>
+      <li class="breadcrumb-item active">Ver Productos</li>
+    </ol>
+
+    <a class="btn btn-primary" th:href="@{/productos/create}"> Crear Producto</a>
+    <br>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Acción</th>
+          <th scope="col">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="producto:${productos}">
+          <td th:text="${producto.nombre}"></td>
+          <td th:text="${producto.descripcion}"></td>
+          <td th:text="${producto.cantidad}"></td>
+          <td th:text="${producto.precio}"></td>
+          <td><a class="btn btn-warning" onclick="return confirm('Está seguro que quiere modificar este Producto?');"
+              th:href="@{productos/editar/{id} (id=${producto.id})}">Editar</a> </td>
+          <td><a class="btn btn-danger" th:onclick="|eliminar_pro('${producto.id}')|">Borrar</a> </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script>
+    function eliminar_pro(id) {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      swalWithBootstrapButtons.fire({
+        title: 'Esta seguro que quiere eliminarlo?',
+        text: "Esta accion no se puede revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'si, seguro!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+          swalWithBootstrapButtons.fire(
+            'Eliminado!',
+            'El producto ha sido eliminado con exito!',
+            'success'
+          ).then((respuesta) => {
+            window.location.href = `productos/delete/${id}`;
+          })
+
+
+
+        } else if (
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelado',
+            'El producto no ha sido eliminado',
+            'error'
+          )
+        }
+      })
+
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://kit.fontawesome.com/ce8c3d092d.js" crossorigin="anonymous"></script>
 
 </body>
 
