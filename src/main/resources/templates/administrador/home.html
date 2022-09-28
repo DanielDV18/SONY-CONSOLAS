@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-<title>Home</title>
+	<title>Home</title>
 
 
-<!-- Bootstrap core CSS -->
-<link th:href="@{vendor/bootstrap/css/bootstrap.min.css}"
-	rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+	<link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/styles.css}">
 
-<!-- Custom styles for this template -->
-<link th:href="@{css/heroic-features.css}" rel="stylesheet">
+
 
 
 
@@ -25,44 +24,56 @@
 <body>
 
 	<!-- Navigation -->
-	<div th:include="administrador/template_admin.html::header"></div>
-
-	<!-- Page Content -->
-	<div class="container">
-
-		<!-- Jumbotron Header -->
-		<header class="jumbotron my-4">
-			<h1 class="display-3">Bienvenido a Sony Consolas 2022</h1>
-			<p class="lead">Los mejores productos a la calidad de nuestros clientes</p>
-		</header>
-
-		<!-- Page Features -->
-		<div class="row text-center">
-		
-		
-		<div class="col-lg-3 col-md-6 mb-4" th:each="producto: ${productos}">
-          <div class="card h-100">
-            <img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="">
-            <div class="card-body">
-              <p class="card-text" th:text="${producto.nombre}"></p>
-            </div>
-            
-          </div>
-        </div>
+	<section id="menu">
+		<div class="logo">
+			<a th:href="@{/administrador}"><img  src="/images/logo.webp" alt=""></a>
+		</div>
 
 
-      </div>
-				
-		<!-- /.row -->
+		<div class="items">
+			<li><i class="fa-solid fa-cart-shopping"></i><a th:href="@{/productos}">PRODUCTOS</a></li>
+			<li><i class="fa-sharp fa-solid fa-users"></i><a th:href="@{/administrador/usuarios}">USUARIOS</a></li>
+			<li><i class="fa-solid fa-cash-register"></i><a th:href="@{/administrador/ventas}">VENTAS</a></li>
+			<li><i class="fa-solid fa-right-from-bracket"></i><a th:href="@{/usuario/cerrar}">SALIR</a></li>
 
-	</div>
+		</div>
+	</section>
+	<section id="interface">
+		<div class="navigation">
+			<div class="search">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
+					autocomplete="off">
+			</div>
+		</div>
+		<div class="admin">
+			<h1>ADMIN</h1>
+		</div>
+		<div class="user">
+			<i class="fa-sharp fa-solid fa-user"></i>
+		</div>
+	</section>
+
+	<!-- Page Features -->
+
+
+		<div class="contenedor" th:each="producto: ${productos}">
+			<div class="caja">
+				<img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="">
+				<div class="card-body">
+					<p class="card-text" th:text="${producto.nombre}"></p>
+				</div>
+
+			</div>
+		</div>
+
+
 	<!-- /.container -->
-
-	<div th:include="administrador/template_admin.html::footer"></div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script th:src="@{vendor/jquery/jquery.min.js}"></script>
 	<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script src="https://kit.fontawesome.com/ce8c3d092d.js" crossorigin="anonymous"></script>
 
 </body>
 

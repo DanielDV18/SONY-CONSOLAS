@@ -1,38 +1,87 @@
-body{
-    background-color: rgb(223 220 214);
+body {
+    background-image: url("/images/WhatsApp\ Image\ 2022-09-27\ at\ 9.59.26\ AM.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
 }
-.form{
+
+.form {
     margin: auto;
     width: 90%;
     max-width: 400px;
     padding: 4.em;
     border-radius: 10px;
-    margin-left: 53%;
-    padding-top: 95px;
-    padding-left: 115px;
-   
+    margin-left: 5%;
+
+
 }
-.form .form-title{
- font-size: 2rem;
- margin-bottom: .5rem;
- margin-left: -15px;
- color: #000000;
- padding: 0.5em;
- 
+
+.form .titu {
+    text-align: center;
+    padding-bottom: 0px;
+    font-size: 15.1px;
 }
-.form .btn{
-    margin-left: -5px;}
-.img1{
-    float:left; 
-    width:740px;
-    height: 527px;
-     margin-top: 0.3em;
-     margin-left: -66px;
+
+.form .form-control {
+    height: 30px;
+    font-size: 0.8em;
 }
-.card-link{
+
+.form label {
+    font-size: 0.8em;
+
+}
+
+
+.form .form-title {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+    margin-left: 2px;
+    color: #000000;
+    text-align: center;
+}
+
+.form .btn {
     margin-left: 0px;
+    width: 100%;
+    padding: 0.1em;
+    color: #fff;
 }
 
+.form .btn:hover {
+    background-color: rgb(66 63 60);
+}
 
+.container .img {
+    margin-left: 23%;
+    margin-top: -20px;
+}
 
+.contenedor {
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 380px;
+    color: #ffff;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 40px;
+    background: rgb(0 0 0 / 70%);
+    border-radius: 15px;
+}
 
+.btn {
+    background-color: rgb(255 127 0);
+}
+
+.form .card-link {
+    color: #fff;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.form .card-link:hover {
+    color: rgb(194, 189, 189);
+}

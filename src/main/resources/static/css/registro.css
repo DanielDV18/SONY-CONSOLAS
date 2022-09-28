@@ -1,30 +1,75 @@
+body {
+    background-image: url("/images/audio-g8a7def403_1920.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 
-.form{
+}
+
+.form {
     margin: auto;
     width: 90%;
     max-width: 400px;
     padding: 4.em;
     border-radius: 10px;
-    margin-left: 63%;
-    padding-top: 15px;
-   
-}
-.form .form-title{
- font-size: 2rem;
- margin-bottom: .5rem;
- margin-left: 2px;
- color: #000000;
-}
-.form .btn{
-    margin-left: -5px;
-}
-.img1{
-    float:left; 
-    width:750px;
-    height: 525px;
-     margin-top: 0.3em;
-}
+    margin-left: 5%;
 
 
+}
 
+.form .titu {
+    text-align: center;
+    padding-bottom: 0px;
+    font-size: 15.1px;
+}
 
+.form .form-control {
+    height: 28px;
+    font-size: 0.8em;
+}
+
+.form label {
+    font-size: 0.8em;
+
+}
+
+.form .form-title {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+    margin-left: 2px;
+    color: #000000;
+    text-align: center;
+}
+
+.form .btn {
+    margin-left: 0px;
+    width: 101%;
+    padding: 0.3em;
+    color: #fff;
+}
+
+.form .btn:hover {
+    background-color: rgb(66 63 60);
+}
+
+.container .img {
+    margin-left: 23%;
+    margin-top: -20px;
+}
+
+.contenedor {
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #ffff;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    height: 480px;
+    padding: 40px;
+    background: rgb(0 0 0 / 48%);
+    border-radius: 15px;
+}
+
+.btn {
+    background-color: rgb(255 127 0);
+}
