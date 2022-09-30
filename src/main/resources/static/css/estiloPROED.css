@@ -36,12 +36,13 @@ body {
     font-size: 35px;
     margin-top: 20px;
 }
-.BUENOS{
-    text-align: center;
-    margin-top: -950px;
-    margin-left: 190px;
+.container {
+    margin-top: -930px;
+    margin-left: 25%;
+    width: 5000px;
+    text-align: left;
+    
 }
-
 
 /*BARRA LATERAL*/
 
@@ -74,9 +75,6 @@ body {
     text-decoration: none;
 }
 
-.active {
-    background: #003C5D;
-}
 
 
 .barra-lateral .menu a i {
@@ -159,9 +157,14 @@ body {
         overflow: visible;
     }
 }
-@media screen and (max-width:1400px) {
-    .BUENOS{
+
+@media screen and (max-width:1466px) {
+   
+    .container{
         margin-top: -750px;
-        margin-left: 200px;
+        margin-left: 295px;
+        width: 1000px;
+        
     }
 }
+

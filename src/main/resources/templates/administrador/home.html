@@ -3,17 +3,17 @@
 
 <head>
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<title>Home</title>
+    <title>Home</title>
 
 
-	<!-- Bootstrap core CSS -->
-	<link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-	<link rel="stylesheet" th:href="@{/css/styles.css}">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 
 
 
@@ -23,57 +23,55 @@
 
 <body>
 
-	<!-- Navigation -->
-	<section id="menu">
-		<div class="logo">
-			<a th:href="@{/administrador}"><img  src="/images/logo.webp" alt=""></a>
-		</div>
+    <!-- Navigation -->
+    <div class="container-fluid">
+        <div class="row justify-content-center align-content-center">
+            <div class="col-8 barra">
+                <a th:href="@{/administrador}">
+                    <h4 class="text-light"> <img src="/images/logo.webp" width="200px"></h4>
+                </a>
+            </div>
+            <div class="col-4 text-right barra">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <a href="#" class="px-3 text-light perfil dropdown-toggle" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                class="fas fa-user-circle user"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+                            <a class="dropdown-item menuperfil cerrar" th:href="@{/usuario/cerrar}"><i
+                                    class="fas fa-sign-out-alt m-1"></i>Salir
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="barra-lateral col-12 col-sm-auto">
+                <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+                    <a th:href="@{/productos}"><i class="fa-solid fa-cart-shopping"></i><span>PRODUCTOS</span></a>
+                    <a th:href="@{/administrador/usuarios}"><i
+                            class="fa-sharp fa-solid fa-users"></i><span>USUARIOS</span></a>
+                    <a th:href="@{/administrador/ventas}"><i
+                            class="fa-sharp fa-solid fa-basket-shopping"></i></i><span>VENTAS</span></a>
+                </nav>
+            </div>
+        </div>
+    </div>
 
-		<div class="items">
-			<li><i class="fa-solid fa-cart-shopping"></i><a th:href="@{/productos}">PRODUCTOS</a></li>
-			<li><i class="fa-sharp fa-solid fa-users"></i><a th:href="@{/administrador/usuarios}">USUARIOS</a></li>
-			<li><i class="fa-solid fa-cash-register"></i><a th:href="@{/administrador/ventas}">VENTAS</a></li>
-			<li><i class="fa-solid fa-right-from-bracket"></i><a th:href="@{/usuario/cerrar}">SALIR</a></li>
+    <div class="BUENOS">
+        <h1>BUENOS DIAS ADMIN!</h1> <h5>Haz iniciado sesion como administrador</h5>
+    </div>
 
-		</div>
-	</section>
-	<section id="interface">
-		<div class="navigation">
-			<div class="search">
-				<i class="fa-solid fa-magnifying-glass"></i>
-				<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
-					autocomplete="off">
-			</div>
-		</div>
-		<div class="admin">
-			<h1>ADMIN</h1>
-		</div>
-		<div class="user">
-			<i class="fa-sharp fa-solid fa-user"></i>
-		</div>
-	</section>
+    <!-- /.container -->
 
-	<!-- Page Features -->
-
-
-		<div class="contenedor" th:each="producto: ${productos}">
-			<div class="caja">
-				<img class="card-img-top" th:src="@{/images/{img} (img=${producto.imagen})}" alt="">
-				<div class="card-body">
-					<p class="card-text" th:text="${producto.nombre}"></p>
-				</div>
-
-			</div>
-		</div>
-
-
-	<!-- /.container -->
-
-	<!-- Bootstrap core JavaScript -->
-	<script th:src="@{vendor/jquery/jquery.min.js}"></script>
-	<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	<script src="https://kit.fontawesome.com/ce8c3d092d.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script th:src="@{vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script src="https://kit.fontawesome.com/ce8c3d092d.js" crossorigin="anonymous"></script>
 
 </body>
 

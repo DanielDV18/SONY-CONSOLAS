@@ -16,110 +16,145 @@
   <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/estilospro.css}">
 
 </head>
 
 <body>
 
- <!-- Navigation -->
- <div th:include="administrador/template_admin.html::header"></div>
-    
+  <!-- Navigation -->
+  <div class="container-fluid">
+    <div class="row justify-content-center align-content-center">
+      <div class="col-8 barra">
+        <a th:href="@{/administrador}">
+          <h4 class="text-light"> <img src="/images/logo.webp" width="200px"></h4>
+        </a>
+      </div>
+      <div class="col-4 text-right barra">
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <a href="#" class="px-3 text-light perfil dropdown-toggle" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                class="fas fa-user-circle user"></i></a>
+            <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+              <a class="dropdown-item menuperfil cerrar" th:href="@{/usuario/cerrar}"><i
+                  class="fas fa-sign-out-alt m-1"></i>Salir
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<!-- Page Content -->
-<div class="container">
-
-
-  <!-- Page Heading/Breadcrumbs -->
-  <h1 class="mt-4 mb-3" style="text-align: left;">
-    LISTADO DE PRODUCTOS
-  </h1>
-
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a th:href="@{/administrador}">Inicio</a></li>
-    <li class="breadcrumb-item active">Ver Productos</li>
-  </ol>
-
-  <a class="btn btn-primary" th:href="@{/productos/create}" > Crear Producto</a>
-  <br>
-  <br>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Acción</th>
-        <th scope="col">Acción</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="producto:${productos}">
-        <td th:text="${producto.nombre}" ></td>
-        <td th:text="${producto.descripcion}"></td>
-        <td th:text="${producto.cantidad}"></td>
-        <td th:text="${producto.precio}"></td>
-        <td><a  class="btn btn-warning" onclick="return confirm('Está seguro que quiere modificar este Producto?');" th:href="@{productos/editar/{id} (id=${producto.id})}">Editar</a> </td>
-        <td><a  class="btn btn-danger" th:onclick="|eliminar_pro('${producto.id}')|" >Borrar</a> </td>
-      </tr>       
-    </tbody>
-  </table>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="barra-lateral col-12 col-sm-auto">
+        <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+          <a th:href="@{/productos}"><i class="fa-solid fa-cart-shopping"></i><span>PRODUCTOS</span></a>
+          <a th:href="@{/administrador/usuarios}"><i class="fa-sharp fa-solid fa-users"></i><span>USUARIOS</span></a>
+          <a th:href="@{/administrador/ventas}"><i
+              class="fa-sharp fa-solid fa-basket-shopping"></i></i><span>VENTAS</span></a>
+        </nav>
+      </div>
+    </div>
+  </div>
 
 
-</div>
-<!-- /.container -->
 
-<div th:include="administrador/template_admin.html::footer"></div>
+  <!-- Page Content -->
+  <div class="container">
 
 
- <!-- Bootstrap core JavaScript -->
- <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
- <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
- <script>
-  function eliminar_pro(id) {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-    swalWithBootstrapButtons.fire({
-      title: 'Esta seguro que quiere eliminarlo?',
-      text: "Esta accion no se puede revertir!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'si, seguro!',
-      cancelButtonText: 'No, cancelar!',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3" style="text-align: center;">
+      LISTADO DE PRODUCTOS
+    </h1>
 
-        swalWithBootstrapButtons.fire(
-          'Eliminado!',
-          'El producto ha sido eliminado con exito!',
-          'success'
-        ).then((respuesta) => {
-          window.location.href = `productos/delete/${id}`;
-        })
-        
-        
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a th:href="@{/administrador}">Inicio</a></li>
+      <li class="breadcrumb-item active">Ver Productos</li>
+    </ol>
 
-      } else if (
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire(
-          'Cancelado',
-          'El producto no ha sido eliminado',
-          'error'
-        )
-      }
-    })
-    
-  }
-</script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <a class="btn btn-primary" th:href="@{/productos/create}"> Crear Producto</a>
+    <br>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Acción</th>
+          <th scope="col">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="producto:${productos}">
+          <td th:text="${producto.nombre}"></td>
+          <td th:text="${producto.descripcion}"></td>
+          <td th:text="${producto.cantidad}"></td>
+          <td th:text="${producto.precio}"></td>
+          <td><a class="btn btn-warning" onclick="return confirm('Está seguro que quiere modificar este Producto?');"
+              th:href="@{productos/editar/{id} (id=${producto.id})}">Editar</a> </td>
+          <td><a class="btn btn-danger" th:onclick="|eliminar_pro('${producto.id}')|">Borrar</a> </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+  <script>
+    function eliminar_pro(id) {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      swalWithBootstrapButtons.fire({
+        title: 'Esta seguro que quiere eliminarlo?',
+        text: "Esta accion no se puede revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'si, seguro!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+          swalWithBootstrapButtons.fire(
+            'Eliminado!',
+            'El producto ha sido eliminado con exito!',
+            'success'
+          ).then((respuesta) => {
+            window.location.href = `productos/delete/${id}`;
+          })
+
+
+
+        } else if (
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelado',
+            'El producto no ha sido eliminado',
+            'error'
+          )
+        }
+      })
+
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://kit.fontawesome.com/ce8c3d092d.js" crossorigin="anonymous"></script>
 
 </body>
 

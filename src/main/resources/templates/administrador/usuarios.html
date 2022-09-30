@@ -18,40 +18,42 @@
 <!-- Custom styles for this template -->
 <link rel="stylesheet" th:href="@{/css/estilousu.css}">
 
+
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <section id="menu">
-		<div class="logo">
-      <a th:href="@{/administrador}"><img  src="/images/logo.webp" alt=""></a>
-		</div>
+  <div class="container-fluid">
+    <div class="row justify-content-center align-content-center">
+        <div class="col-8 barra">
+            <a th:href="@{/administrador}"><h4 class="text-light"> <img src="/images/logo.webp" width="200px"></h4></a>
+        </div>
+        <div class="col-4 text-right barra">
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a href="#" class="px-3 text-light perfil dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle user"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+                        <a class="dropdown-item menuperfil cerrar" th:href="@{/usuario/cerrar}"><i class="fas fa-sign-out-alt m-1"></i>Salir
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-
-		<div class="items">
-			<li><i class="fa-solid fa-cart-shopping"></i><a th:href="@{/productos}">PRODUCTOS</a></li>
-			<li><i class="fa-sharp fa-solid fa-users"></i><a th:href="@{/administrador/usuarios}">USUARIOS</a></li>
-			<li><i class="fa-solid fa-cash-register"></i><a th:href="@{/administrador/ventas}">VENTAS</a></li>
-			<li><i class="fa-solid fa-right-from-bracket"></i><a th:href="@{/usuario/cerrar}">SALIR</a></li>
-
-		</div>
-	</section>
-	<section id="interface">
-		<div class="navigation">
-			<div class="search">
-				<i class="fa-solid fa-magnifying-glass"></i>
-				<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
-					autocomplete="off">
-			</div>
-		</div>
-		<div class="admin">
-			<h1>ADMIN</h1>
-		</div>
-		<div class="user">
-			<i class="fa-sharp fa-solid fa-user"></i>
-		</div>
-	</section>
+<div class="container-fluid">
+    <div class="row">
+        <div class="barra-lateral col-12 col-sm-auto">
+            <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+                <a th:href="@{/productos}"><i class="fa-solid fa-cart-shopping"></i><span>PRODUCTOS</span></a>
+                <a th:href="@{/administrador/usuarios}"><i class="fa-sharp fa-solid fa-users"></i><span>USUARIOS</span></a>
+                <a th:href="@{/administrador/ventas}"><i class="fa-sharp fa-solid fa-basket-shopping"></i></i><span>VENTAS</span></a>
+            </nav>
+        </div>
+    </div>
+</div>
 
 <!-- Page Content -->
 <div class="container">

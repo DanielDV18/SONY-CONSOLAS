@@ -15,14 +15,43 @@
 	<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+	<link th:href="@{/css/estilosVEN.css}" rel="stylesheet">
 
 </head>
 
 <body>
 
 	<!-- Navigation -->
-	<div th:include="administrador/template_admin.html::header"></div>
+	<div class="container-fluid">
+        <div class="row justify-content-center align-content-center">
+            <div class="col-8 barra">
+                <a th:href="@{/administrador}"><h4 class="text-light"> <img src="/images/logo.webp" width="200px"></h4></a>
+            </div>
+            <div class="col-4 text-right barra">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <a href="#" class="px-3 text-light perfil dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle user"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+                            <a class="dropdown-item menuperfil cerrar" th:href="@{/usuario/cerrar}"><i class="fas fa-sign-out-alt m-1"></i>Salir
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="barra-lateral col-12 col-sm-auto">
+                <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+                    <a th:href="@{/productos}"><i class="fa-solid fa-cart-shopping"></i><span>PRODUCTOS</span></a>
+                    <a th:href="@{/administrador/usuarios}"><i class="fa-sharp fa-solid fa-users"></i><span>USUARIOS</span></a>
+                    <a th:href="@{/administrador/ventas}"><i class="fa-sharp fa-solid fa-basket-shopping"></i></i><span>VENTAS</span></a>
+                </nav>
+            </div>
+        </div>
+    </div>
 
 
 	<!-- Page Content -->
@@ -30,9 +59,11 @@
 
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">
-			REPORTE DE VENTAS
-		</h1>
+		<center>
+			<h1 class="mt-4 mb-3">
+				REPORTE DE VENTAS
+			</h1>
+		</center>
 
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a th:href="@{/administrador}">Inicio</a></li>
@@ -40,7 +71,7 @@
 		</ol>
 
 		<!-- Blog Post -->
-		<div class="card mb-4" style="background-color: #fff;" >
+		<div class="card mb-4" style="background-color: #fff;">
 			<div class="card-body">
 				<div class="row">
 					<div class="col-lg-12">
@@ -58,7 +89,8 @@
 									<td th:text="${venta.numero}"></td>
 									<td th:text="${venta.fechaCreacion}"></td>
 									<td th:text="${venta.total}"></td>
-									<td><a th:href="@{/administrador/detalle/{id} (id=${venta.id})}" class="btn btn-success">Ver Detalle</a></td>
+									<td><a th:href="@{/administrador/detalle/{id} (id=${venta.id})}"
+											class="btn btn-success">Ver Detalle</a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -70,13 +102,13 @@
 	<!-- /.container -->
 
 
-	<!-- Footer -->
 
-	<div th:include="administrador/template_admin.html::footer"></div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
 	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script src="https://kit.fontawesome.com/ce8c3d092d.js" crossorigin="anonymous"></script>
+
 
 </body>
 

@@ -14,14 +14,42 @@
    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+  <link th:href="@{/css/estiloPROED.css}" rel="stylesheet">
 
 </head>
 
 <body>
 
   <!-- Navigation -->
-   <div th:include="administrador/template_admin.html::header" ></div>
+  <div class="container-fluid">
+    <div class="row justify-content-center align-content-center">
+        <div class="col-8 barra">
+            <a th:href="@{/administrador}"><h4 class="text-light"> <img src="/images/logo.webp" width="200px"></h4></a>
+        </div>
+        <div class="col-4 text-right barra">
+            <ul class="navbar-nav mr-auto">
+                <li>
+                    <a href="#" class="px-3 text-light perfil dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle user"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+                        <a class="dropdown-item menuperfil cerrar" th:href="@{/usuario/cerrar}"><i class="fas fa-sign-out-alt m-1"></i>Salir
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="barra-lateral col-12 col-sm-auto">
+            <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+                <a th:href="@{/productos}"><i class="fa-solid fa-cart-shopping"></i><span>PRODUCTOS</span></a>
+            </nav>
+        </div>
+    </div>
+</div>
+
     <!-- Page Content -->
     <div class="container">
 
@@ -29,13 +57,9 @@
 
       <!-- Page Heading/Breadcrumbs -->
       
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/administrador}">Inicio</a></li>
-        <li class="breadcrumb-item active">Actualizar Producto</li>
-      </ol>
 
       <div class="titulo" style="margin-left: 15px;"><h2>Actualizar Producto</h2></div>
-      <br>
+
       <form class="form-horizontal" th:action="@{/productos/update}" method="post"  enctype="multipart/form-data">
         <input type="hidden" name="id" th:value="${producto.id}">    
         <div class="form-group">
@@ -86,11 +110,8 @@
     <br>
     <!-- /.container -->
     
-    
-<!-- Footer -->
- <div th:include="administrador/template_admin.html::footer" ></div>
-
  <!-- Bootstrap core JavaScript -->
+ <script src="https://kit.fontawesome.com/ce8c3d092d.js" crossorigin="anonymous"></script>
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 

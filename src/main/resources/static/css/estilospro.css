@@ -8,7 +8,7 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     margin: 0;
-    
+
 }
 
 .dropdown-menu {
@@ -36,12 +36,19 @@ body {
     font-size: 35px;
     margin-top: 20px;
 }
-.BUENOS{
-    text-align: center;
-    margin-top: -950px;
-    margin-left: 190px;
+
+.container {
+    margin-top: -960px;
+    margin-left: 25%;
+    width: 5000px;
+    text-align: left;
 }
 
+
+
+.container .table {
+    background-color: #fff;
+}
 
 /*BARRA LATERAL*/
 
@@ -74,9 +81,6 @@ body {
     text-decoration: none;
 }
 
-.active {
-    background: #003C5D;
-}
 
 
 .barra-lateral .menu a i {
@@ -102,15 +106,19 @@ body {
     .barra-lateral {
         min-width: auto;
     }
+
     .barra-lateral .menu a span {
         display: none;
     }
+
     .barra-lateral .menu a i {
         margin: 0;
     }
+
     .barra {
         min-width: auto;
     }
+
     .dropdown-menu {
         margin: 20px -79px 0px;
     }
@@ -120,16 +128,20 @@ body {
     .barra-lateral {
         min-height: auto;
     }
+
     .barra-lateral .menu a {
         display: inline-block;
         border-bottom: none;
     }
+
     .dropdown-menu {
         margin: 20px -78px 0px;
     }
+
     .logocppe {
         width: 100%;
     }
+
     body {
         background: #D3D3D3;
         font-size: 16px;
@@ -147,21 +159,27 @@ body {
     .barra-lateral {
         height: auto;
     }
+
     .barra-lateral.menu a {
         display: inline-block;
         border-bottom: none;
     }
+
     .dropdown-menu {
         margin: 20px -78 0px;
     }
+
     body {
         font-size: 16px;
         overflow: visible;
     }
 }
-@media screen and (max-width:1400px) {
-    .BUENOS{
-        margin-top: -750px;
-        margin-left: 200px;
+
+@media screen and (max-width:1466px) {
+
+    .container {
+        margin-top: -780px;
+        margin-left: 295px;
+        width: 1000px;
     }
 }
