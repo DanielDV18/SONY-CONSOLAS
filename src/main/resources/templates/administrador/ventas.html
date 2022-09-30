@@ -22,6 +22,7 @@
 <body>
 
 	<!-- Navigation -->
+<<<<<<< HEAD
 	<div class="container-fluid">
         <div class="row justify-content-center align-content-center">
             <div class="col-8 barra">
@@ -52,6 +53,37 @@
             </div>
         </div>
     </div>
+=======
+	<section id="menu">
+		<div class="logo">
+			<a th:href="@{/administrador}"><img src="/images/logo.webp" alt=""></a>
+		</div>
+
+
+		<div class="items">
+			<li><i class="fa-solid fa-cart-shopping"></i><a th:href="@{/productos}">PRODUCTOS</a></li>
+			<li><i class="fa-sharp fa-solid fa-users"></i><a th:href="@{/administrador/usuarios}">USUARIOS</a></li>
+			<li><i class="fa-solid fa-cash-register"></i><a th:href="@{/administrador/ventas}">VENTAS</a></li>
+			<li><i class="fa-solid fa-right-from-bracket"></i><a th:href="@{/usuario/cerrar}">SALIR</a></li>
+
+		</div>
+	</section>
+	<section id="interface">
+		<div class="navigation">
+			<div class="search">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre"
+					autocomplete="off">
+			</div>
+		</div>
+		<div class="admin">
+			<h1>ADMIN</h1>
+		</div>
+		<div class="user">
+			<i class="fa-sharp fa-solid fa-user"></i>
+		</div>
+	</section>
+>>>>>>> e5647f3b383c87ef969f795769bacbd6c2835c8d
 
 
 	<!-- Page Content -->
