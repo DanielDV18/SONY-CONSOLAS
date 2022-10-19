@@ -17,87 +17,60 @@
 	<!-- Custom styles for this template -->
 	<link th:href="@{css/heroic-features.css}" rel="stylesheet">
 
+
+
 </head>
 
 <body>
 
 	<!-- Navigation -->
 	<div th:fragment="header">
-
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="height: 60px; background-color: rgb(159 154 150);">
-			<img src="/images/logo.webp"  width="150px" height="50px" style="text-align: left;">
-
+	
+		<div id="top-header">
 			<div class="container">
-			
-
-				<form class="form-inline my-2 my-lg-0" method="post" th:action="@{/buscar}">
-					<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
-						name="nombre" autocomplete="off">
-					<button class="btn btn-warning" type="submit">Buscar</button>
-				</form>
-
-
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-					aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" th:href="@{/usuario/registro}" style="color:#fff ;">REGISTRARSE</a></li>
-						<li class="nav-item"><a class="nav-link" th:href="@{/usuario/login}" style="color:#fff ;">INICIAR SESION</a></li>
-
-
-					</ul>
-				</div>
+				<ul class="header-links pull-left">
+					<li><a href="#"><i class="fa fa-phone"></i> +57 313-87-30-570</a></li>
+					<li><a href="#"><i class="fa fa-envelope-o"></i> sonyconsolas@gmail.com</a></li>
+					<li><a
+							href="https://www.google.com/maps/place/Cl.+2a+%2335,+Bogot%C3%A1/@4.6244517,-74.1425714,17z/data=!3m1!4b1!4m5!3m4!1s0x8e3f9ea6c7460797:0x1e2083ad9fb73a01!8m2!3d4.6244464!4d-74.1403827?hl=es"><i
+								class="fa fa-map-marker"></i> Cra 2 a #35-11 kennedy </a></li>
+				</ul>
+				<ul class="header-links pull-right">
+					<li><a th:href="@{/usuario/registro}"><i class="fa fa-user-o"></i> Registrarse</a></li>
+					<li><a th:href="@{/usuario/login}"><i class="fa fa-user-o"></i> Iniciar Sesion</a></li>
+				</ul>
 			</div>
-		</nav>
+		</div>
 	</div>
+
 
 
 
 	<!-- Navigation -->
 	<div th:fragment="header-user">
-		<nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="height: 60px; background-color: rgb(159 154 150);">
-			<img src="/images/logo.webp"  width="150px" height="50px" style="text-align: left;">
-
+		<div id="top-header">
 			<div class="container">
+				<ul class="header-links pull-left">
+					<li><a href="#"><i class="fa fa-phone"></i> +57 313-87-30-570</a></li>
+					<li><a href="#"><i class="fa fa-envelope-o"></i> sonyconsolas@gmail.com</a></li>
+					<li><a
+							href="https://www.google.com/maps/place/Cl.+2a+%2335,+Bogot%C3%A1/@4.6244517,-74.1425714,17z/data=!3m1!4b1!4m5!3m4!1s0x8e3f9ea6c7460797:0x1e2083ad9fb73a01!8m2!3d4.6244464!4d-74.1403827?hl=es"><i
+								class="fa fa-map-marker"></i> Cra 2 a #35-11 kennedy </a></li>
+				</ul>
+				<ul class="header-links pull-right">
+					<li><a href="#"><i class="fa fa-user"></i> Bienvenido USER</a></li>
+					<li><a th:href="@{/usuario/compras}"><i class="fa fa-shopping-cart"></i> Compras</a></li>
+					<li><a th:href="@{/usuario/cerrar}"><i class="fa fa-close"></i> Salir</a></li>
 
-				<form class="form-inline my-2 my-lg-0" method="post" th:action="@{/buscar}">
-					<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
-						name="nombre" autocomplete="off">
-					<button class="btn btn-warning" type="submit">Buscar</button>
-				</form>
-
-
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-					aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
-								id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false" style="color:#fff ;"> USUARIO </a>
-
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" th:href="@{/usuario/compras}"> Compras</a>
-								<a class="dropdown-item" th:href="@{/getCart}"> Carrito</a>
-								<a class="dropdown-item" th:href="@{/usuario/cerrar}"> Salir</a>
-
-							</div>
-						</li>
-
-
-					</ul>
-				</div>
+				</ul>
 			</div>
-		</nav>
+		</div>
 	</div>
 
 
 	<!-- Footer -->
 	<div th:fragment="footer">
-		<footer class="py-5"  style="background-color: #9f9a96;">
+		<footer class="py-5" style="background-color: #9f9a96;">
 			<div class="container">
 				<p class="m-0 text-center text-white">Copyright &copy; Sony Consolas 2021</p>
 			</div>
@@ -107,6 +80,7 @@
 	<!-- Bootstrap core JavaScript -->
 	<script th:src="@{vendor/jquery/jquery.min.js}"></script>
 	<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	
 
 </body>
 

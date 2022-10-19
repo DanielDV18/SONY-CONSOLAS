@@ -41,6 +41,9 @@ public class AdministradorController {
     	return "administrador/home";
     }
     
+    
+    
+
     @GetMapping("/usuarios")
     public String usuarios(Model model) {
     	

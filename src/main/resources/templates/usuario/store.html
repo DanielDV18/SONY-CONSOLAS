@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/logo" th:href="@{/images/icono.ico}">
+
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Sony Consolas</title>
+
+ 		<!-- Google font -->
+		<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,500,700}" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" th:href="@{css/slick.css}"/>
+		<link type="text/css" rel="stylesheet" th:href="@{css/slick-theme.css}"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" th:href="@{css/nouislider.min.css}"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" th:href="@{css/font-awesome.min.css}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" th:href="@{css/style.css}"/>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +57 313-87-30-570</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> sonyconsolas@gmail.com</a></li>
+						<li><a href="https://www.google.com/maps/place/Cl.+2a+%2335,+Bogot%C3%A1/@4.6244517,-74.1425714,17z/data=!3m1!4b1!4m5!3m4!1s0x8e3f9ea6c7460797:0x1e2083ad9fb73a01!8m2!3d4.6244464!4d-74.1403827?hl=es"><i class="fa fa-map-marker"></i> Cra 2 a #35-11 kennedy </a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+						<li><a href="#"><i class="fa fa-user-o"></i> PERFIL</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a th:href="@{index}" class="logo">
+									<img th:src="@{/images/logo.webp}" alt="">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form>
+									<select class="input-select">
+										<option value="1">Microfonos</option>
+									</select>
+									<input class="input" placeholder="Search here">
+									<button class="search-btn">Buscar</button>
+								</form>
+							</div>
+						</div>
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+							
+								<!-- Cart -->
+								<div class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-shopping-cart"></i>
+										<span>Carrito</span>
+									</a>
+									<div class="cart-dropdown" th:each="producto: ${productos}">
+										<div class="cart-list">
+											<div class="product-widget">
+												<div class="product-img">
+													<img th:src="@{/images/{img} (img=${producto.imagen})}" alt="">
+												</div>
+												<div class="product-body">
+													<h3 class="product-name" th:text="${producto.nombre}"><a href="#"></a></h3>
+													<h4 class="product-price" th:text="${producto.precio}"></h4>
+												</div>
+												<button class="delete"><i class="fa fa-close"></i></button>
+											</div>
+									</div>
+								</div>
+								<!-- /Cart -->
+
+								<!-- Menu Toogle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li class="active"><a th:href="@{/index}">Inicio</a></li>
+						<li><a href="#">Microfonos</a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- ASIDE -->
+					<div id="aside" class="col-md-3">
+						<!-- aside Widget -->
+						<div class="aside">
+							<h3 class="aside-title">Categorias</h3>
+							<div class="checkbox-filter">
+
+								<div class="input-checkbox">
+									<input type="checkbox" id="category-1">
+									<label for="category-1">
+										<span></span>
+										Microfonos
+										<small></small>
+									</label>
+								</div>
+							</div>
+						</div>
+						<!-- /aside Widget -->
+
+						
+
+						<!-- aside Widget -->
+						<div class="aside">
+							<h3 class="aside-title">Marcas</h3>
+							<div class="checkbox-filter">
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-1">
+									<label for="brand-1">
+										<span></span>
+										VSG
+									</label>
+								</div>
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-3">
+									<label for="brand-3">
+										<span></span>
+										SONY
+									</label>
+								</div>
+								
+								<div class="input-checkbox">
+									<input type="checkbox" id="brand-5">
+									<label for="brand-5">
+										<span></span>
+										HUAWEI
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /ASIDE -->
+
+					<!-- STORE -->
+					<div id="store" class="col-md-9">
+						<!-- store top filter -->
+						<div class="store-filter clearfix">
+							<div class="store-sort">
+								<label>
+									Mostrar:
+									<select class="input-select">
+										<option value="0">Popular</option>
+										<option value="1">Posicion</option>
+									</select>
+								</label>
+						</div>
+						<!-- /store top filter -->
+
+						<!-- store products -->
+						<div class="row">
+							<!-- product -->
+							<div class="col-md-4 col-xs-6">
+								<div class="product" th:each="producto: ${productos}">
+									<div class="product-img">
+										<img th:src="@{/images/{img} (img=${producto.imagen})}"  alt="">
+									</div>
+									<div class="product-body">
+										<h3 class="product-name" th:text="${producto.nombre}"></h3>
+										<h4 class="product-price" th:text="${producto.precio}"></h4>
+									</div>
+									<div class="add-to-cart">
+										<button class="add-to-cart-btn"><a th:href="@{/productohome}"></i>Ver Producto</a></button>
+									</div>
+								</div>
+							</div>
+							<!-- /product -->
+
+							<!-- product -->
+							<div class="col-md-4 col-xs-6">
+								<div class="product" th:each="producto: ${productos}">
+									<div class="product-img">
+										<img th:src="@{/images/{img} (img=${producto.imagen})}"  alt="">
+									</div>
+									<div class="product-body">
+										<h3 class="product-name" th:text="${producto.nombre}"></h3>
+										<h4 class="product-price" th:text="${producto.precio}"></h4>
+									</div>
+									<div class="add-to-cart">
+										<button class="add-to-cart-btn"><a th:href="@{productohome}"></i>Ver Producto</a></button>
+									</div>
+								</div>
+							</div>
+							<!-- /product -->
+
+							<!-- product -->
+							<div class="col-md-4 col-xs-6">
+								<div class="product" th:each="producto: ${productos}">
+									<div class="product-img">
+										<img th:src="@{/images/{img} (img=${producto.imagen})}"  alt="">
+									</div>
+									<div class="product-body">
+										<h3 class="product-name" th:text="${producto.nombre}"></h3>
+										<h4 class="product-price" th:text="${producto.precio}"></h4>
+									</div>
+									<div class="add-to-cart">
+										<button class="add-to-cart-btn"><a th:href="@{productohome}"></i>Ver Producto</a></button>
+									</div>
+								</div>
+							</div>
+							<!-- /product -->
+						</div>
+						<!-- /store products -->
+
+						<!-- store bottom filter -->
+						<div class="store-filter clearfix">
+							<span class="store-qty">Mostrando productos</span>
+							<ul class="store-pagination">
+								<li class="active">1</li>
+								<li><a href="#">2</a></li>
+								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+							</ul>
+						</div>
+						<!-- /store bottom filter -->
+					</div>
+					<!-- /STORE -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+	<!--Sobre nosotros y demas-->
+
+	<footer id="footer">
+		<!-- top footer -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Categorias</h3>
+							<ul class="footer-links">
+								<li><a href="#">Microfonos</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Informacion</h3>
+							<ul class="footer-links">
+								<li><a href="#">Intranet</a></li>
+								<li><a href="#">Contactenos</a></li>
+								<br>
+								<hr>
+								<div id="copyright">Copyright&copy; 2021 - Página creada por SISC - Todos los derechos reservados SENA</div>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Redes</h3>
+							<ul class="footer-links">
+								<li><a href="https://www.google.com/aclk?sa=l&ai=DChcSEwj2kPOJkpP6AhVUhloFHeSlBmkYABAAGgJ2dQ&sig=AOD64_210YO3ehwxp6aW15aR6fCaGfWMtg&q&adurl&ved=2ahUKEwinwOyJkpP6AhUuTjABHYy2BAQQ0Qx6BAgDEAE" class="fa fa-facebook"></a></li>
+								<li><a href="https://z-p15.www.instagram.com/accounts/login/?next=/p/CK8SOUgBxgo/&hl=es-la" class="fa fa-instagram"></a></li>
+								<li><a href="https://twitter.com/login?lang=es" class="fa fa-twitter"></a></li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		</footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{js/bootstrap.min.js}"></script>
+		<script th:src="@{js/slick.min.js}"></script>
+		<script th:src="@{js/nouislider.min.js}"></script>
+		<script th:src="@{js/jquery.zoom.min.js}"></script>
+		<script th:src="@{js/main.js}"></script>
+
+	</body>
+</html>

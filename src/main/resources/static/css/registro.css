@@ -12,8 +12,6 @@ body {
     padding: 4.em;
     border-radius: 10px;
     margin-left: 5%;
-
-
 }
 
 .form .titu {
@@ -72,4 +70,34 @@ body {
 
 .btn {
     background-color: rgb(255 127 0);
+}
+
+/*Validaciones*/
+
+.msn-error{
+    font-size: 12px;
+    color: rgb(255, 255, 255);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.frm-icono{
+    position: absolute;
+    right: 1rem;
+    bottom: 2rem;
+    color: red;
+    z-index: 100;
+}
+
+.success .frm-icono{
+    color: green;
+}
+
+.error .frm-icono{
+    color: red;
+}
+
+.msn-error-visible{
+    visibility: visible;
+    opacity: 1;
 }

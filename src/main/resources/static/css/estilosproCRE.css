@@ -1,7 +1,8 @@
 body {
-<<<<<<< HEAD
     background: #cfc9bb;
 }
+
+
 
 .barra {
     background: rgb(161, 159, 159);
@@ -162,135 +163,15 @@ body {
 @media screen and (max-width:1466px) {
    
     .container{
-        margin-top: -750px;
-        margin-left: 295px;
+        margin-top: -550px;
+        margin-left: 150px;
         width: 1000px;
         
     }
+    .barra1{
+        margin-top: -60px;
+    }
+   
 }
 
-=======
-    width: 100%;
-    display: flex;
-    background-color: #cfc9bb;
-}
 
-#menu {
-    background-color: #505050;
-    ;
-    width: 280px;
-    height: 714px;
-    margin-top: -60px;
-    margin-left: -8px;
-
-}
-
-#menu .logo {
-    display: flex;
-    align-items: center;
-    padding: 30px 0 0 30px;
-}
-
-#menu .logo img {
-    width: 200px;
-    margin-right: 15px;
-}
-
-#menu .items {
-    margin-top: 40px;
-}
-
-#menu .items li {
-    list-style: none;
-    padding: 15px 0;
-    transition: 0.3s ease;
-}
-
-#menu .items li:hover {
-    background: rgba(254, 11, 11, 0);
-    cursor: pointer;
-}
-
-#menu .items li:nth-child(1) {
-    border-left: 4px solid #fff;
-}
-
-#menu .items li i {
-    color: rgb(255, 136, 0);
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    font-size: 14px;
-    margin: 0 10px 0 25px;
-}
-
-#menu .items li:hover i,
-#menu .items li:hover a {
-    color: #fff;
-}
-
-#menu .items li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 300px;
-    transition: 0.3s ease;
-}
-
-#interface {
-    width: calc(100% - 100px);
-}
-
-#interface .navigation {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    padding: 15px 30px;
-    border-bottom: 5px solid #ff7f00;
-    margin-top: -60px;
-    margin-right: -135px;
-
-}
-
-#interface .navigation .search {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px 14px;
-    border: 1px solid #d7bde6;
-    border-radius: 4px;
-}
-
-#interface .navigation .search i {
-    margin-right: 14px;
-}
-
-#interface .navigation .search input {
-    border: none;
-    outline: none;
-    font-size: 14px;
-}
-
-#interface .admin {
-    margin-left: 100%;
-    margin-top: -70px;
-}
-
-#interface .user {
-    margin-left: 95%;
-    margin-top: -47px;
-
-}
-
-#interface .user i {
-    font-size: 32px;
-
-}
-
-.container {
-    margin-top: 59px;
-    margin-left: -800px;
-
-}
->>>>>>> e5647f3b383c87ef969f795769bacbd6c2835c8d

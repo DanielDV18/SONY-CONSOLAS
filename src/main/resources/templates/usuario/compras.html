@@ -17,16 +17,57 @@
 	<!-- Custom styles for this template -->
 	<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
 
+	<!-- Google font -->
+	<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,500,700}" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" th:href="@{/css/slick.css}" />
+	<link type="text/css" rel="stylesheet" th:href="@{/css/slick-theme.css}" />
+
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" th:href="@{/css/nouislider.min.css}" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+
 </head>
 
 <body>
 
+
 	<!-- Navigation -->
 	<div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
-
 	<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div>
 
-
+	<!-- MAIN HEADER -->
+	<div id="header">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- LOGO -->
+				<div class="col-md-3">
+					<div class="header-logo">
+						<a th:href="@{/}" class="logo">
+							<img th:src="@{/images/logo.webp}" alt="">
+						</a>
+					</div>
+				</div>
+				<!-- /LOGO -->
+			</div>
+			<!-- row -->
+		</div>
+		<!-- container -->
+	</div>
+	<!-- /MAIN HEADER -->
+	</header>
+	<!-- /HEADER -->
 
 	<!-- Page Content -->
 	<div class="container">
@@ -34,7 +75,7 @@
 
 		<!-- Page Heading/Breadcrumbs -->
 		<h1 class="mt-4 mb-3">
-			Spring eCommerce <small>Compras</small>
+			COMPRAS
 		</h1>
 
 		<ol class="breadcrumb">
@@ -61,7 +102,8 @@
 									<td th:text="${venta.numero}"></td>
 									<td th:text="${venta.fechaCreacion}"></td>
 									<td th:text="${venta.total}"></td>
-									<td><a th:href="@{/usuario/detalle/{id} (id=${venta.id})}" class="btn btn-success">Ver Detalle</a></td>
+									<td><a th:href="@{/usuario/detalle/{id} (id=${venta.id})}"
+											class="btn btn-success">Ver Detalle</a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -72,14 +114,61 @@
 	</div>
 	<!-- /.container -->
 
+
 	<!-- Footer -->
-	<!-- Footer -->
-	<div th:include="usuario/template_usuario.html::footer"></div>
+	<footer id="footer">
+		<!-- top footer -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Categorias</h3>
+							<ul class="footer-links">
+								<li><a href="#">Microfonos</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Informacion</h3>
+							<ul class="footer-links">
+								<li><a href="#">Contactenos</a></li>
+								<br>
+								<hr>
+								<div id="copyright">Copyright&copy; 2021 - Página creada por SISC - Todos los derechos reservados SENA</div>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Redes</h3>
+							<ul class="footer-links">
+								<li><a href="https://www.google.com/aclk?sa=l&ai=DChcSEwj2kPOJkpP6AhVUhloFHeSlBmkYABAAGgJ2dQ&sig=AOD64_210YO3ehwxp6aW15aR6fCaGfWMtg&q&adurl&ved=2ahUKEwinwOyJkpP6AhUuTjABHYy2BAQQ0Qx6BAgDEAE" class="fa fa-facebook"></a></li>
+								<li><a href="https://z-p15.www.instagram.com/accounts/login/?next=/p/CK8SOUgBxgo/&hl=es-la" class="fa fa-instagram"></a></li>
+								<li><a href="https://twitter.com/login?lang=es" class="fa fa-twitter"></a></li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
 	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
+	<style>
+		body {
+			margin-top: -55px;
+		}
+	</style>
 </body>
 
 </html>

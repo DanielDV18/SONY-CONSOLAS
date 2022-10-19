@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Sony Consolas</title>
+
+ 		<!-- Google font -->
+		 <link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,500,700}" rel="stylesheet">
+
+		 <!-- Bootstrap -->
+		 <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+ 
+		 <!-- Slick -->
+		 <link type="text/css" rel="stylesheet" th:href="@{/css/slick.css}"/>
+		 <link type="text/css" rel="stylesheet" th:href="@{/css/slick-theme.css}"/>
+ 
+		 <!-- nouislider -->
+		 <link type="text/css" rel="stylesheet" th:href="@{/css/nouislider.min.css}"/>
+ 
+		 <!-- Font Awesome Icon -->
+		 <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+ 
+		 <!-- Custom stlylesheet -->
+		 <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
+
+ 	
+    </head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +57 313-87-30-570</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> sonyconsolas@gmail.com</a></li>
+						<li><a href="https://www.google.com/maps/place/Cl.+2a+%2335,+Bogot%C3%A1/@4.6244517,-74.1425714,17z/data=!3m1!4b1!4m5!3m4!1s0x8e3f9ea6c7460797:0x1e2083ad9fb73a01!8m2!3d4.6244464!4d-74.1403827?hl=es"><i class="fa fa-map-marker"></i> Cra 2 a #35-11 kennedy </a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li><a href="#"><i class="fa fa-user-o"></i> Registrarse</a></li>
+						<li><a href="#"><i class="fa fa-user-o"></i> Iniciar Sesion</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="#" class="logo">
+									<img src="./img/logo.png" alt="">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form>
+									<select class="input-select">
+										<option value="0">Microfonos</option>
+										<option value="1"></option>
+										<option value="1"></option>
+										<option value="1"></option>
+									</select>
+									<input class="input" placeholder="Busca Aqui">
+									<button class="search-btn">Buscar</button>
+								</form>
+							</div>
+						</div>
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<!-- Menu Toogle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+
+		<!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header"></h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="#">Home</a></li>
+							<li class="active">Carrito De Compra</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+	
+
+		
+		<div id="newsletter" class="section">
+			<!-- container -->
+			<div class="container">
+				<!--Carrito de compra-->
+					<!-- Blog Post -->
+		<div class="card mb-4">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Cantidad</th>
+									<th scope="col">Producto</th>
+									<th scope="col">Precio</th>
+									<th scope="col">Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="detalle:${ventas}">
+									<td th:text ="${detalle.cantidad}"></td>
+									<td th:text ="${detalle.nombre}"></td>
+									<td  th:text ="${detalle.precio}"></td>
+									<td  th:text ="${detalle.total}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+				<!--/Carrito de compra-->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /NEWSLETTER -->
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categorias</h3>
+								<ul class="footer-links">
+									<li><a href="#">Microfonos</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Informacion</h3>
+								<ul class="footer-links">
+									<li><a href="#">Contactenos</a></li>
+									<br>
+									<hr>
+									<div id="copyright">Copyright&copy; 2021 - Página creada por SISC - Todos los derechos reservados SENA</div>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Redes</h3>
+								<ul class="footer-links">
+									<li><a href="https://www.google.com/aclk?sa=l&ai=DChcSEwj2kPOJkpP6AhVUhloFHeSlBmkYABAAGgJ2dQ&sig=AOD64_210YO3ehwxp6aW15aR6fCaGfWMtg&q&adurl&ved=2ahUKEwinwOyJkpP6AhUuTjABHYy2BAQQ0Qx6BAgDEAE" class="fa fa-facebook"></a></li>
+									<li><a href="https://z-p15.www.instagram.com/accounts/login/?next=/p/CK8SOUgBxgo/&hl=es-la" class="fa fa-instagram"></a></li>
+									<li><a href="https://twitter.com/login?lang=es" class="fa fa-twitter"></a></li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+		<!-- jQuery Plugins -->
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/slick.min.js}"></script>
+		<script th:src="@{/js/nouislider.min.js}"></script>
+		<script th:src="@{/js/jquery.zoom.min.js}"></script>
+		<script th:src="@{/js/main.js}"></script>
+
+	</body>
+</html>

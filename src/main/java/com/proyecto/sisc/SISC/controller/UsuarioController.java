@@ -40,6 +40,7 @@ public class UsuarioController {
 		return "usuario/registro";
 	}
 
+
 	@PostMapping("/save")
 	public String save(Usuario usuario) {
 		logger.info("Usuario registro: {}", usuario);
@@ -107,5 +108,19 @@ public class UsuarioController {
 		session.removeAttribute("idusuario");
 	
 		return "redirect:/";
+	}
+
+/*Borrar*/
+	@GetMapping("/compras2")
+	public String obtenerCompra2(Model model, HttpSession session) {
+		model.addAttribute("sesion",session.getAttribute("idusuario"));
+		
+		Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+		List<Venta> ventas= ventaService.findByUsuario(usuario);
+		
+		model.addAttribute("ventas2",ventas);
+		
+		
+		return "usuario/compras";
 	}
 }

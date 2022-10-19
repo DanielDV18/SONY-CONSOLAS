@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/logo" th:href="@{/images/icono.ico}">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Sony Consolas</title>
+
+		<!-- Google font -->
+		<link th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,500,700}" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/slick.css}"/>
+		<link type="text/css" rel="stylesheet" th:href="@{/css/slick-theme.css}"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/nouislider.min.css}"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
+
+    </head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
+			<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div>
+
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a th:href="index" class="logo">
+									<img th:src="@{/images/logo.webp}" alt="">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								<form>
+									<select class="input-select">
+										<option value="0">Microfonos</option>
+										<option value="1"></option>
+										<option value="1"></option>
+										<option value="1"></option>
+
+									</select>
+									<input class="input" placeholder="Search here">
+									<button class="search-btn" method="post" th:action="@{/buscar}">Buscar</button>
+								</form>
+							</div>
+						</div>
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<!-- Wishlist -->
+								<div>
+									<a href="#">
+									</a>
+								</div>
+								<!-- /Wishlist -->
+
+								
+
+								<!-- Menu Toogle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li class="active"><a th:href="@{/index}">Inicio</a></li>
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">Nuevos Productos</h3>
+							<div class="section-nav">
+								<ul class="section-tab-nav tab-nav">
+									<li class="active"><a data-toggle="tab" href="#tab1"></a></li>
+									<li><a data-toggle="tab" href="#tab1"></a></li>
+									<li><a data-toggle="tab" href="#tab1"></a></li>
+									<li><a data-toggle="tab" href="#tab1"></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab1" class="tab-pane active">
+									<div class="products-slick" data-nav="#slick-nav-1">
+										<!-- product -->
+										<div class="product" th:each="producto: ${productos}">
+											<div class="product-img">
+												<img th:src="@{/images/{img} (img=${producto.imagen})}"  alt="">
+												<div class="product-label">
+												</div>
+											</div>
+											<div class="product-body">
+												<h3 class="product-name" th:text="${producto.nombre}"></h3>
+												<h4 class="product-price" th:text="${producto.precio}"></h4>
+											</div>
+											<div class="add-to-cart">
+												<a class="add-to-cart-btn" th:href="@{/productohome2/{id} (id=${producto.id})}"><i class="fa fa-shopping-cart"></i>Añadir al carrito</a>
+											</div>
+										</div>
+										<!-- /product -->
+									</div>
+									<div id="slick-nav-1" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- HOT DEAL SECTION -->
+		<div id="hot-deal" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="hot-deal">
+							<h2 class="text-uppercase">Sony Consolas</h2>
+							<strong><p>Consolas de radio a los mejores precios y la mejor calidad</p></strong>
+							<a class="primary-btn cta-btn" th:href="@{/store}">¡Compra Ahora!</a>
+							
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /HOT DEAL SECTION -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">Mas Vendidos</h3>
+							<div class="section-nav">
+								<ul class="section-tab-nav tab-nav">
+									<li class="active"><a data-toggle="tab" href="#tab2"></li>
+									<li><a data-toggle="tab" href="#tab2"></a></li>
+									<li><a data-toggle="tab" href="#tab2"></a></li>
+									<li><a data-toggle="tab" href="#tab2"></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab2" class="tab-pane fade in active">
+									<div class="products-slick" data-nav="#slick-nav-2">
+										<!-- product -->
+										<div class="product" th:each="producto: ${productos}">
+											<div class="product-img">
+												<img th:src="@{/images/{img} (img=${producto.imagen})}" alt="">
+												<div class="product-label">
+												</div>
+											</div>
+											<div class="product-body">
+												<h3 class="product-name" th:text="${producto.nombre}"></h3>
+												<h4 class="product-price" th:text="${producto.precio}"></h4>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><a th:href="@{/productohome2/{id} (id=${producto.id})}"><i class="fa fa-shopping-cart"></i>Añadir al carrito</a></button>
+											</div>
+										</div>
+										<!-- /product -->
+									</div>
+									<div id="slick-nav-2" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- /Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+	<!--Apartado abierto de metodos de pago-->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img th:src="@{/images/Pagos.png}" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>PAGOS SEGUROS<br></h3>
+								<a th:href="@{/store.html}" class="cta-btn">Paga Ahora <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img th:src="@{/images/Compra.jpg}" alt="">
+							</div>
+							<div class="shop-body">
+								<h4>LOS MEJORES ASESORES</h4>
+								<a href="store.html" class="cta-btn">Sobre Nosotros <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img th:src="@{images/Venta.jpg}" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>COLECCION DE<br>MICROFONOS</h3>
+								<a href="store.html" class="cta-btn">DESCUBRELO <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- Sobre nosotros -->
+		<div id="hot-deal" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="hot-deal">
+							<h2 class="text-uppercase">Sony Consolas</h2>
+							<strong><p>Somos una empresa encargada en vender radios y microfonos a los mejores precion y a los mejores alcances para nuestrs clientes</p></strong>
+							<strong><p>Te entregamos productos de calidad y nos encargamos de darte el mejor de los servicios en nuestra pagina web, de manera rapida y efectiva </p></strong>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /Sobre nosotros -->
+
+		<!--COMENTARIOS-->
+		<br>
+		<br>
+		<section class="opiniones" id="opiniones">
+			<center><h1 class="heading">OPINIONES DE NUESTROS CLIENTES</h1></center>
+			<div class="caja-contenedor">
+				<div class="caja">
+					<i class="fa fa-comments"></i>
+					<div class="user">
+						<img th:src="@{/images/user_1.png}" alt="">
+						<h3>DANIEL</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+						</div>
+						<div class="comentarios">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt deserunt sint cumque repellat nemo, a cupiditate saepe nostrum ass
+							umenda unde, non deleniti? Totam eum debitis in numquam quaerat dolores blanditiis.
+						</div>
+					</div>
+				</div>
+
+				<div class="caja">
+					<i class="fa fa-comments"></i>
+					<div class="user">
+						<img th:src="@{/images/user_3.png}" alt="">
+						<h3>MIGUEL</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+
+						</div>
+						<div class="comentarios">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt deserunt sint cumque repellat nemo, a cupiditate saepe nostrum ass
+							umenda unde, non deleniti? Totam eum debitis in numquam quaerat dolores blanditiis.
+						</div>
+					</div>
+				</div>
+
+				<div class="caja">
+					<i class="fa fa-comments"></i>
+					<div class="user">
+						<img th:src="@{/images/user_2.png}" alt="">
+						<h3>SARA</h3>
+						<div class="stars">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+						</div>
+						<div class="comentarios">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt deserunt sint cumque repellat nemo, a cupiditate saepe nostrum ass
+							umenda unde, non deleniti? Totam eum debitis in numquam quaerat dolores blanditiis.
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<hr>
+	<!--Apartado cerrado de metodos de pago-->
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categorias</h3>
+								<ul class="footer-links">
+									<li><a href="#">Microfonos</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Informacion</h3>
+								<ul class="footer-links">
+									<li><a href="#">Contactenos</a></li>
+									<br>
+									<hr>
+									<div id="copyright">Copyright&copy; 2021 - Página creada por SISC - Todos los derechos reservados SENA</div>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Redes</h3>
+								<ul class="footer-links">
+									<li><a href="https://www.google.com/aclk?sa=l&ai=DChcSEwj2kPOJkpP6AhVUhloFHeSlBmkYABAAGgJ2dQ&sig=AOD64_210YO3ehwxp6aW15aR6fCaGfWMtg&q&adurl&ved=2ahUKEwinwOyJkpP6AhUuTjABHYy2BAQQ0Qx6BAgDEAE" class="fa fa-facebook"></a></li>
+									<li><a href="https://z-p15.www.instagram.com/accounts/login/?next=/p/CK8SOUgBxgo/&hl=es-la" class="fa fa-instagram"></a></li>
+									<li><a href="https://twitter.com/login?lang=es" class="fa fa-twitter"></a></li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+		<!-- jQuery Plugins -->
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/slick.min.js}"></script>
+		<script th:src="@{/js/nouislider.min.js}"></script>
+		<script th:src="@{/js/jquery.zoom.min.js}"></script>
+		<script th:src="@{/js/main.js}"></script>
+
+	</body>
+</html>
