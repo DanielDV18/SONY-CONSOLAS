@@ -8,20 +8,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuarios") 
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @NotEmpty
     private String nombre;
     private String username;
+    @NotEmpty
     private String email;
     private String direccion;
     private String telefono;
     private String tipo;
+    @NotEmpty
     private String password;
   
     

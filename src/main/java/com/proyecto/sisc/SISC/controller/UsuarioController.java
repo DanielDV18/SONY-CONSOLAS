@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.proyecto.sisc.SISC.model.Usuario;
 import com.proyecto.sisc.SISC.model.Venta;
 import com.proyecto.sisc.SISC.service.IUsuarioService;
@@ -36,18 +37,27 @@ public class UsuarioController {
 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 	@GetMapping("/registro")
-	public String create() {
+	public String create(Model m) {
+		Usuario usuario = new Usuario();
+		m.addAttribute("usuario", usuario);
 		return "usuario/registro";
 	}
 
 
 	@PostMapping("/save")
-	public String save(Usuario usuario) {
+	public String save(@Valid Usuario usuario, BindingResult res, Model m ) {
+
+		if(res.hasErrors()){
+			return "usuario/registro";
+			}
+		m.addAttribute("usuario", usuario);
+
 		logger.info("Usuario registro: {}", usuario);
 		usuario.setTipo("USER");
 		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 		usuarioService.save(usuario);
 
+		
 		return "redirect:/";
 	}
 

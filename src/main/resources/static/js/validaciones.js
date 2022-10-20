@@ -6,7 +6,7 @@ const form = document.getElementById("form")
 const parrafo = document.getElementById("warnings")
 
 form.addEventListener("submit", e => {
-    e.preventDefault()
+    
     let warnings = ""
     let entrar = false
     let regexEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
@@ -26,4 +26,5 @@ form.addEventListener("submit", e => {
     if (entrar) {
         parrafo.innerHTML = warnings
     }
+    //e.preventDefault()
 })

@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,17 +49,23 @@ public class ProductoController {
     }
 
     @GetMapping("/create")
-    public String create(){
+    public String create(Model m){
+		Producto producto = new Producto();
+		m.addAttribute("producto", producto);
         return "productos/create";
     }
     
     @PostMapping("/save")
-    public String save(Producto producto,@RequestParam("img") MultipartFile file, HttpSession session) throws IOException {
-    	LOGGER.info("Este es el objeto del producto {}",producto);
+    public String save(@Valid Producto producto,BindingResult res, Model m, @RequestParam("img") MultipartFile file, HttpSession session ) throws IOException {
+		if(res.hasErrors()){
+			return "productos/create";
+		}
+		m.addAttribute("producto", producto);
     	
+    	LOGGER.info("Este es el objeto del producto {}",producto);
     	Usuario u= usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString() )).get();
     	producto.setUsuario(u);
-    	//imagen
+		//imagen
     	if(producto.getId()==null) { //Primera vez de un producto
     		String nombreImagen= upload.saveImage(file);
     		producto.setImagen(nombreImagen);
@@ -66,7 +74,6 @@ public class ProductoController {
     	else {
     		
     	}
-    	
     	productoService.save(producto);
     	return "redirect:/productos";
     }
