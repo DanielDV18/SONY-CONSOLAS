@@ -9,7 +9,30 @@
 	<meta name="author" content="">
 
 	<title>DETALLES</title>
+	<style>
+		@media print {
+			#header {
+				display: none;
+			}
 
+			.part1 {
+				display: none;
+			}
+
+			.part4 {
+				display: none;
+			}
+
+			.part2 .breadcrumb {
+				display: none;
+			}
+
+			#footer {
+				display: none;
+			}
+
+		}
+	</style>
 
 	<!-- Bootstrap core CSS -->
 	<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
@@ -40,9 +63,10 @@
 <body>
 
 	<!-- Navigation -->
-	<div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
-
-	<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div>
+	<div class="part1">
+		<div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
+		<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div>
+	</div>
 
 	<!-- MAIN HEADER -->
 	<div id="header">
@@ -73,15 +97,18 @@
 
 
 		<!-- Page Heading/Breadcrumbs -->
-		<h1 class="mt-4 mb-3">
-			DETALLES DE LA COMPRA
-		</h1>
+		<div class="part2">
+			<h1 class="mt-4 mb-3">
+				DETALLES DE LA COMPRA
+			</h1>
 
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
-			<li class="breadcrumb-item"><a th:href="@{/usuario/compras}">Compras</a></li>
-			<li class="breadcrumb-item active">Detalles de la Compra</li>
-		</ol>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a th:href="@{/}">Inicio</a></li>
+				<li class="breadcrumb-item"><a th:href="@{/usuario/compras}">Compras</a></li>
+				<li class="breadcrumb-item active">Detalles de la Compra</li>
+			</ol>
+		</div>
+
 
 		<!-- Blog Post -->
 		<div class="card mb-4">
@@ -106,6 +133,10 @@
 								</tr>
 							</tbody>
 						</table>
+						<div class="part4">
+							<button type="submit" onclick="print()" class="btn btn-warning"> GENRAR RECIBO</button>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -119,55 +150,58 @@
 		<div class="section">
 			<!-- container -->
 			<div class="container">
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">Categorias</h3>
-							<ul class="footer-links">
-								<li><a href="#">Microfonos</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="clearfix visible-xs"></div>
-
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">Informacion</h3>
-							<ul class="footer-links">
-								<li><a href="#">Contactenos</a></li>
-								<br>
-								<hr>
-								<div id="copyright">Copyright&copy; 2021 - Página creada por SISC - Todos los derechos reservados SENA</div>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">Redes</h3>
-							<ul class="footer-links">
-								<li><a href="https://www.google.com/aclk?sa=l&ai=DChcSEwj2kPOJkpP6AhVUhloFHeSlBmkYABAAGgJ2dQ&sig=AOD64_210YO3ehwxp6aW15aR6fCaGfWMtg&q&adurl&ved=2ahUKEwinwOyJkpP6AhUuTjABHYy2BAQQ0Qx6BAgDEAE" class="fa fa-facebook"></a></li>
-								<li><a href="https://z-p15.www.instagram.com/accounts/login/?next=/p/CK8SOUgBxgo/&hl=es-la" class="fa fa-instagram"></a></li>
-								<li><a href="https://twitter.com/login?lang=es" class="fa fa-twitter"></a></li>
-
-							</ul>
-						</div>
+				<div class="col-md-3 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-title">Categorias</h3>
+						<ul class="footer-links">
+							<li><a href="#">Microfonos</a></li>
+						</ul>
 					</div>
 				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-	
 
-	<!-- Bootstrap core JavaScript -->
-	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	<style>
-		body {
-			margin-top: -55px;
-		}
-	</style>
+				<div class="clearfix visible-xs"></div>
+
+				<div class="col-md-3 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-title">Informacion</h3>
+						<ul class="footer-links">
+							<li><a href="#">Contactenos</a></li>
+							<br>
+							<hr>
+							<div id="copyright">Copyright&copy; 2021 - Página creada por SISC - Todos los derechos
+								reservados SENA</div>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-title">Redes</h3>
+						<ul class="footer-links">
+							<li><a href="https://www.google.com/aclk?sa=l&ai=DChcSEwj2kPOJkpP6AhVUhloFHeSlBmkYABAAGgJ2dQ&sig=AOD64_210YO3ehwxp6aW15aR6fCaGfWMtg&q&adurl&ved=2ahUKEwinwOyJkpP6AhUuTjABHYy2BAQQ0Qx6BAgDEAE"
+									class="fa fa-facebook"></a></li>
+							<li><a href="https://z-p15.www.instagram.com/accounts/login/?next=/p/CK8SOUgBxgo/&hl=es-la"
+									class="fa fa-instagram"></a></li>
+							<li><a href="https://twitter.com/login?lang=es" class="fa fa-twitter"></a></li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+		</div>
+
+
+		<!-- Bootstrap core JavaScript -->
+		<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+		<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		<style>
+			body {
+				margin-top: -55px;
+			}
+		</style>
 </body>
 
 </html>

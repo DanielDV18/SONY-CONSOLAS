@@ -62,7 +62,7 @@ body {
     color: #ffff;
     transform: translate(-50%, -50%);
     width: 380px;
-    height: 480px;
+    height: 550px;
     padding: 40px;
     background: rgb(0 0 0 / 48%);
     border-radius: 15px;
@@ -72,32 +72,3 @@ body {
     background-color: rgb(255 127 0);
 }
 
-/*Validaciones*/
-
-.msn-error{
-    font-size: 12px;
-    color: rgb(255, 255, 255);
-    visibility: hidden;
-    opacity: 0;
-}
-
-.frm-icono{
-    position: absolute;
-    right: 1rem;
-    bottom: 2rem;
-    color: red;
-    z-index: 100;
-}
-
-.success .frm-icono{
-    color: green;
-}
-
-.error .frm-icono{
-    color: red;
-}
-
-.msn-error-visible{
-    visibility: visible;
-    opacity: 1;
-}

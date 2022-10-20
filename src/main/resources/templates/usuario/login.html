@@ -32,11 +32,11 @@
 
 
 
-      <form class="form" th:action="@{/usuario/login}" method="post">
+      <form class="form" th:action="@{/usuario/login}" method="post" id="form">
         <h5 class="titu">INICIAR SESIÓN</h5>
         <div class="form-group">
           <label for="email"> Correo: </label>
-          <input type="email" class="form-control" id="username" name="username" placeholder="Ingrese su Correo" required
+          <input type="email" class="form-control" id="email" name="username" placeholder="Ingrese su Correo"
             autocomplete="off">
 
         </div>
@@ -54,6 +54,7 @@
           </div>
         </div>
         <a th:href="@{/usuario/registro}" class="card-link">¿No tiene una cuenta? Cree una.</a>
+    
       </form>
 
 
@@ -63,10 +64,9 @@
   </div>
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
+  <!-- Bootstrap core JavaScript -->
+  <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+  <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 
 </html>
