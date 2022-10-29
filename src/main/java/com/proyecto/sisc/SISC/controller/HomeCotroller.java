@@ -285,7 +285,7 @@ public class HomeCotroller {
 		model.addAttribute("venta", venta);
 		model.addAttribute("usuario", usuario);
 		
-		
+	
 
 		return "usuario/resumenorden2";
 	}
