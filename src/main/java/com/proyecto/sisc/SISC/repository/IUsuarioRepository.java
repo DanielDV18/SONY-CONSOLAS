@@ -9,6 +9,5 @@ import com.proyecto.sisc.SISC.model.Usuario;
 
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario, Integer>{
-	
 	Optional<Usuario> findByEmail(String email);
 }

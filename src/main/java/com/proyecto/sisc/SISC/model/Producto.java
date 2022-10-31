@@ -30,11 +30,8 @@ public class Producto {
     public Producto(){
 
     }
-
-   
-
-    public Producto(Integer id, String nombre, String descripcion, String imagen, double precio, int cantidad,
-            Usuario usuario) {
+    public Producto(Integer id, @NotEmpty String nombre, @NotEmpty String descripcion, String imagen, double precio,
+            int cantidad, Usuario usuario) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -43,8 +40,6 @@ public class Producto {
         this.cantidad = cantidad;
         this.usuario = usuario;
     }
-
-
 
     public Integer getId() {
         return id;

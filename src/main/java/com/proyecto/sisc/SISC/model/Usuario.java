@@ -2,12 +2,14 @@ package com.proyecto.sisc.SISC.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 
@@ -21,10 +23,13 @@ public class Usuario {
     private String nombre;
     private String username;
     @NotEmpty
+    @Email
+    @Column(length=40, nullable=false, unique = true)
     private String email;
     private String direccion;
     private String telefono;
     private String tipo;
+    private boolean isEnabled;
     @NotEmpty
     private String password;
   
@@ -39,9 +44,11 @@ public class Usuario {
     public Usuario(){
 
     }
-   
-    public Usuario(Integer id, String nombre, String username, String email, String direccion, String telefono,
-            String tipo, String password, List<Producto> productos, List<Venta> ventas) {
+
+
+    public Usuario(Integer id, @NotEmpty String nombre, String username, @NotEmpty @Email String email,
+            String direccion, String telefono, String tipo, boolean isEnabled, @NotEmpty String password,
+            List<Producto> productos, List<Venta> ventas) {
         this.id = id;
         this.nombre = nombre;
         this.username = username;
@@ -49,10 +56,12 @@ public class Usuario {
         this.direccion = direccion;
         this.telefono = telefono;
         this.tipo = tipo;
+        this.isEnabled = isEnabled;
         this.password = password;
         this.productos = productos;
         this.ventas = ventas;
     }
+
 
 
     public Integer getId() {
@@ -102,6 +111,13 @@ public class Usuario {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean isEnabled) {
+        this.isEnabled = isEnabled;
     }
 
     public List<Producto> getProductos() {

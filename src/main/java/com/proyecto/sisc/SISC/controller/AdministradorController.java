@@ -1,6 +1,9 @@
 package com.proyecto.sisc.SISC.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.lowagie.text.DocumentException;
+import com.proyecto.sisc.SISC.Utill_Reportes.VentasExporterPDF;
 import com.proyecto.sisc.SISC.model.Producto;
 import com.proyecto.sisc.SISC.model.Venta;
 import com.proyecto.sisc.SISC.service.IUsuarioService;
@@ -66,5 +72,17 @@ public class AdministradorController {
     	model.addAttribute("detalles",venta.getDetalle());
     	
     	return "administrador/detalleventa";
+    }
+    @GetMapping("/exportarPDF")
+    public void exportarPDFVentas(HttpServletResponse respuesta) throws DocumentException, IOException{
+        respuesta.setContentType("aplication/pdf");
+        String cabecera = "Content-disposition";
+        String valor = "attachment; filename=Venta" + ".pdf";
+        respuesta.setHeader(cabecera, valor);
+
+        List<Venta> venta = ventaService.findAll();
+
+        VentasExporterPDF exporterPDF = new VentasExporterPDF(venta);
+        exporterPDF.exportar(respuesta);
     }
 }

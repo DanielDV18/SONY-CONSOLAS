@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.support.SessionStatus;
+
 import com.proyecto.sisc.SISC.model.Usuario;
 import com.proyecto.sisc.SISC.model.Venta;
+import com.proyecto.sisc.SISC.repository.IUsuarioRepository;
 import com.proyecto.sisc.SISC.service.IUsuarioService;
 import com.proyecto.sisc.SISC.service.IVentaService;
 
@@ -33,6 +36,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private IVentaService ventaService;
+
+	@Autowired
+	private IUsuarioRepository usuarioRepository;
 	
 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -56,10 +62,9 @@ public class UsuarioController {
 		usuario.setTipo("USER");
 		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 		usuarioService.save(usuario);
-
-		
 		return "redirect:/";
-	}
+		} 
+	
 
 	@GetMapping("/login")
 	public String Login() {
@@ -85,7 +90,8 @@ public class UsuarioController {
 
 		return "redirect:/";
 	}
-	
+
+
 	@GetMapping("/compras")
 	public String obtenerCompra(Model model, HttpSession session) {
 		model.addAttribute("sesion",session.getAttribute("idusuario"));
