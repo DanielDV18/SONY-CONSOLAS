@@ -1,6 +1,9 @@
 package com.proyecto.sisc.SISC.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lowagie.text.DocumentException;
+import com.proyecto.sisc.SISC.Utill_Reportes.VentasExporterEXCEL;
 import com.proyecto.sisc.SISC.Utill_Reportes.VentasExporterPDF;
 import com.proyecto.sisc.SISC.model.Producto;
 import com.proyecto.sisc.SISC.model.Venta;
@@ -76,8 +80,13 @@ public class AdministradorController {
     @GetMapping("/exportarPDF")
     public void exportarPDFVentas(HttpServletResponse respuesta) throws DocumentException, IOException{
         respuesta.setContentType("aplication/pdf");
+        //FECHA AL DESCARGAR(ACTUAL)
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String fechaActual = dateFormatter.format(new Date());
+
+
         String cabecera = "Content-disposition";
-        String valor = "attachment; filename=Venta" + ".pdf";
+        String valor = "attachment; filename=Venta_" + fechaActual + ".pdf";
         respuesta.setHeader(cabecera, valor);
 
         List<Venta> venta = ventaService.findAll();
@@ -85,4 +94,23 @@ public class AdministradorController {
         VentasExporterPDF exporterPDF = new VentasExporterPDF(venta);
         exporterPDF.exportar(respuesta);
     }
+
+    @GetMapping("/exportarEXCEL")
+    public void exportarEXCELVentas(HttpServletResponse respuesta) throws DocumentException, IOException{
+        respuesta.setContentType("aplication/octet-stream");
+        //FECHA AL DESCARGAR(ACTUAL)
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String fechaActual = dateFormatter.format(new Date());
+
+
+        String cabecera = "Content-disposition";
+        String valor = "attachment; filename=Venta_" + fechaActual + ".xlsx";
+        respuesta.setHeader(cabecera, valor);
+
+        List<Venta> venta = ventaService.findAll();
+
+        VentasExporterEXCEL exporter = new VentasExporterEXCEL(venta);
+        exporter.exportar(respuesta);
+    }
+
 }

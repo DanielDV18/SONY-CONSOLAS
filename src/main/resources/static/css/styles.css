@@ -94,6 +94,12 @@ body {
     padding-left: 40px;
     padding-right: 40px;
 }
+.escr{
+    position: relative;
+    top: 30px;
+    left: 25%;
+    width: 60%;
+}
 
 
 /*mediaquerys*/

@@ -67,7 +67,7 @@ public class VentasExporterPDF {
         PdfPTable tabla = new PdfPTable(3);
         tabla.setWidthPercentage(100);
         tabla.setSpacingBefore(15);
-        tabla.setWidths(new float[] {6f, 2.3f, 2.2f} );
+        tabla.setWidths(new float[] {3f, 2.3f, 2.2f} );
         tabla.setWidthPercentage(110);
 
 
