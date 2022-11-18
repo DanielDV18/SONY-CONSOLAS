@@ -7,5 +7,4 @@ import com.proyecto.sisc.SISC.model.Producto;
 
 @Repository
 public interface IProductoRepository extends JpaRepository<Producto, Integer> {
-
 }

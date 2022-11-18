@@ -69,17 +69,17 @@
 			<li class="breadcrumb-item"><a th:href="@{/administrador}">Inicio</a></li>
 			<li class="breadcrumb-item active">Ventas</li>
 		</ol>
-		<a th:href="@{/administrador/exportarPDF}" class="btn btn-danger" style="position:relative; left:-345px; bottom:7px ;">Exportar a PDF</a>
-		<a th:href="@{/administrador/exportarEXCEL}" class="btn btn-success" style="position:relative; left:-340px; bottom:7px ;">Exportar a EXCEL</a>
-
+		<a th:href="@{/administrador/exportarPDF}" class="btn btn-danger" style="position:relative; right:200px; bottom:5px ;">Exportar a PDF</a>
+		<a th:href="@{/administrador/exportarEXCEL}" class="btn btn-success" style="position:relative; right:480px; bottom:5px ;">Exportar a EXCEL</a>
+		
 		<!-- Blog Post -->
-		<div class="card mb-4" style="background-color: #fff;">
+		<div class="card mb-5" style="background-color: #fff; ">
 			<div class="card-body">
 				<div class="row">
 					<div class="col-lg-12">
 						<table class="table">
 							<thead>
-								<tr>
+								<tr style="background-color: #bdb8b8;">
 									<th scope="col">No. de Orden</th>
 									<th scope="col">Fecha</th>
 									<th scope="col">Valor</th>
@@ -100,6 +100,7 @@
 				</div>
 			</div>
 		</div>
+		<p style="text-align: center; position:relative; bottom: 10px">Developed by SISC TEAM. ©  SENA 2022</p>
 	</div>
 	<!-- /.container -->
 
@@ -109,8 +110,7 @@
 	<!-- Bootstrap core JavaScript -->
 	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
 	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	<script src="https://kit.fontawesome.com/ce8c3d092d.js" crossorigin="anonymous"></script>
-
+    <script src="https://kit.fontawesome.com/ce39a87d8e.js" crossorigin="anonymous"></script>
 
 </body>
 

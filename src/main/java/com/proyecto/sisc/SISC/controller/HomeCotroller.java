@@ -247,6 +247,7 @@ public class HomeCotroller {
 		for (DetalleVenta detalleVenta : detalles) {
 			if (detalleVenta.getProducto().getId() != id) {
 				ordenesnuevas.add(detalleVenta);
+				
 			}
 		}
 		// NUEVA LISTA CON LOS PRODUCTOS RESTANTES DEL CARRITO
