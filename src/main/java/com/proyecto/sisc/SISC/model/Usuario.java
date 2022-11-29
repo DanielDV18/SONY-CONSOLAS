@@ -27,6 +27,7 @@ public class Usuario {
     @Column(length=40, nullable=false, unique = true)
     private String email;
     private String direccion;
+    @NotEmpty
     private String telefono;
     private String tipo;
     private boolean isEnabled;

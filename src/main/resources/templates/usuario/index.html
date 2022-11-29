@@ -165,7 +165,7 @@
 												<h4 class="product-price" th:text="${producto.precio}"></h4>
 											</div>
 											<div class="add-to-cart">
-												<a class="add-to-cart-btn" th:href="@{/productohome2/{id} (id=${producto.id})}"><i class="fa fa-shopping-cart">Añadir al carrito</i>Añadir al carrito</a>
+												<button class="add-to-cart-btn"><a th:href="@{/productohome2/{id} (id=${producto.id})}"><i class="fa fa-shopping-cart"></i>Añadir al carrito</a></button>
 											</div>
 										</div>
 										<!-- /product -->
@@ -215,7 +215,7 @@
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">Mas Vendidos</h3>
+							<h3 class="title"> PRODUCTOS</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
 									<li class="active"><a data-toggle="tab" href="#tab2"></li>

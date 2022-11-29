@@ -60,7 +60,7 @@ public class VentasExporterPDF {
         fuente.setColor(Color.ORANGE);
         fuente.setSize(18);
 
-        Paragraph titulo = new Paragraph("Reporte de Ventas",fuente);
+        Paragraph titulo = new Paragraph("Reporte de Ventas SONY CONSOLAS" ,fuente);
         titulo.setAlignment(Paragraph.ALIGN_CENTER);
         documento.add(titulo);
 

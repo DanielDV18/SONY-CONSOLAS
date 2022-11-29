@@ -12,6 +12,8 @@ body {
     padding: 4.em;
     border-radius: 10px;
     margin-left: 5%;
+    position: relative;
+    top: 3px;
 }
 
 .form .titu {
@@ -62,7 +64,7 @@ body {
     color: #ffff;
     transform: translate(-50%, -50%);
     width: 380px;
-    height: 550px;
+    height: 630px;
     padding: 40px;
     background: rgb(0 0 0 / 48%);
     border-radius: 15px;
